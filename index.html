@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Country Info App</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="heading">Get some info about your country</h1>
+    </header>
+    <div class="container">
+        <div class="search_info">
+            <input id="find" type="text" placeholder="search">
+            <input type="submit" value="Get Info">
+        </div>
+    </div>
+    <div class="container">
+        <div class="info">
+            <h1 class="name"></h1>
+            <img class="image" src="">
+            <p class="nativeName"></p>
+            <p class="code"></p>
+            <p class="capital"></p>
+            <p class="region"></p>
+            <p class="subregion"></p>
+            <p class="population"></p>
+            <p class="language"></p>
+            <p class="currency"></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="search_map">
+            <input id="address" type="text" placeholder="Your country">
+            <input id="submit" type="button" value="Get map">
+        </div>
+    </div>
+    <div class="container">
+        <div class="map">
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbkrOH4VaFv1z8f39ke_fyNGYUcRHBjKs">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

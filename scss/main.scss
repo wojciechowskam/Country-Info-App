@@ -1,0 +1,216 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url("../images/map.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: .8;
+    animation: anime 300s linear infinite normal;
+}
+
+/*@keyframes anime
+{
+  0% { background-position:0 0, 0 0, 0 0; }
+  100% { background-position: 10000px 0, 7500px 0, 5000px 0; }
+}*/
+
+h1, h2, h3, h4, h5, h6, ul {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.container::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+header {
+    background-color: /*#696969*/#7c7672;
+    height: 100px;
+    text-align: center;
+    padding-top: 30px;
+}
+//animacja
+.heading {
+  color: white;
+  font-weight: 500;
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+.heading .letter {
+  display: inline-block;
+  line-height: 10px;
+}
+
+.title {
+    color: #585654;
+    font-size: 15px;
+}
+
+.search_info {
+    height: 100px;
+}
+
+.search_map {
+    height: 100px;
+    display: none;
+}
+
+#find, #address {
+    width: 600px;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    outline: none;
+    box-shadow: 0 0 7px #7c7672;
+    color:#756a6a;
+    transition: 0.3s all;
+    &:focus {
+        border-color: #b1ada7;
+        box-shadow: inset 0 0 0 1px #7c7672;
+        outline: none;
+    }
+}
+
+input[type="submit"], #submit {
+    width: 120px;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #756a6a;
+    box-shadow: 0 0 7px #756a6a;
+    outline: none;
+    transition-property: width, background;
+    transition-duration: 2s;
+}
+
+input[type="submit"]:hover, #submit:hover  {
+    background-color: #756a6a;
+    width: 120px;
+    color: white;
+}
+
+.info {
+    display: none;
+     h1 {
+        color: #585654;
+        margin-left: 100px;
+        margin-right: 100px;
+        padding: 5px;
+        font-size: 30px;
+        }
+        .image {
+            display: none;
+            width: 150px;
+            height: 75px;
+            margin-left: 140px;
+        }
+        p {
+        margin-left: 100px;
+        margin-right: 100px;
+        padding: 5px 30px;
+        font-weight: bold;
+        font-size: 17px;
+        border-radius: 5px;
+        width: 760px;
+        }
+}
+
+p:nth-of-type(2n+1) {
+    background-color: /*#e5dfdf*/#a9a197;
+}
+p:nth-of-type(2n+2) {
+    background-color: /*#eee9e9*/#e2dad4;
+}
+
+.map {
+    height: 500px;
+    width: 1000px;
+    background: #bcbcbc;
+    display: none;
+}
+//rwd
+@media (max-width: 640px) {
+    .container {
+        width: 500px;
+    }
+    header {
+        height: 50px;
+        padding-top: 10px;
+    }
+    .heading {
+      font-weight: 300;
+      font-size: 20px;
+
+    }
+    .search_info {
+        height: 50px;
+    }
+
+    .search_map {
+        height: 50px;
+    }
+    #find, #address {
+        width: 250px;
+        height: 40px;
+        margin-left: 50px;
+        font-size: 15px;
+        padding-left: 10px;
+    }
+    input[type="submit"], #submit {
+        width: 100px;
+        height: 40px;
+        margin-top: 25px;
+        margin-left: 30px;
+        font-size: 15px;
+    }
+    .title {
+        font-size: 10px;
+    }
+    .info {
+        display: none;
+         h1 {
+            margin-left: 50px;
+            margin-right: 50px;
+            padding-top: 20px;
+            font-size: 20px;
+            }
+            .image {
+                width: 100px;
+                height: 40px;
+                margin-left: 50px;
+            }
+            p {
+            margin-left: 50px;
+            margin-right: 50px;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 10px;
+            border-radius: 5px;
+            width: 400px;
+            }
+    }
+    .map {
+        height: 300px;
+        width: 500px;
+        margin-top: 50px;
+    }
+}
