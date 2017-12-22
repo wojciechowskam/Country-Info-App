@@ -25,7 +25,7 @@ gulp.task("browseSync", function() {
 
 
 gulp.task('sass', function () {
-  return gulp.src('./scss/main.scss')
+  return gulp.src('./scss/style.scss')
     .pipe(plumber({
         errorHandler : handleError
     }))

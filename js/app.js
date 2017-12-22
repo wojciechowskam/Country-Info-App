@@ -16,17 +16,19 @@ $(function() {
             var population = r[0].population;
             var language = r[0].languages[0].name;
             var currency = r[0].currencies[0].code;
+            var currencyName = r[0].currencies[0].name;
             var flag = r[0].flag;
 
             $(".name").text(name);
             $(".nativeName").html('<span class="title">Native name:</span>' + " " + nativeName);
-            $(".code").html('<span class="title">Two-letter country codes:</span>' + " " + code1);
+            $(".code").html('<span class="title">Country code:</span>' + " " + code1);
             $(".capital").html('<span class="title">Capital:</span>' + " " + capital);
             $(".region").html('<span class="title">Geographical location:</span>' + " " + region);
             $(".subregion").html('<span class="title">Subregion:</span>' + " " + subregion);
             $(".population").html('<span class="title">Population:</span>' + " " + population);
             $(".language").html('<span class="title">Language:</span>' + " " + language);
             $(".currency").html('<span class="title">Currency:</span>' + " " + currency);
+            $(".currency_name").html('<span class="title">Currency name:</span>' + " " + currencyName);
             $(".image").attr("src", flag).show();
 
         })
@@ -45,12 +47,24 @@ $(function() {
         $(".search_map").show();
         $(".map").show();
         google.maps.event.trigger(map, 'resize');
+        $(".ending").show();
+
     })
 
     input.on("keyup", function(e) {
         $(".search_map").find("#address").val(input.val());
     })
 
+
+
+    var btn = $("#submit");
+    console.log(btn);
+
+    btn.on("click", function(e) {
+        input.val("");
+    });
+
+//Google Maps
     var map;
     function initMap() {
 
@@ -98,7 +112,7 @@ $(function() {
                 lat: 51,
                 lng: 19
             },
-            zoom: 4,
+            zoom: 3,
             mapTypeControlOptions: {
             mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                     'styled_map']
@@ -117,6 +131,7 @@ $(function() {
     $('#submit').on('click', function() {
         geocodeAddress(geocoder, map);
     });
+    var marker = null;
 
     function geocodeAddress(geocoder, resultsMap) {
         var address = $(".search_map").find("#address").val();
@@ -124,9 +139,12 @@ $(function() {
             'address': address
         }, function(results, status) {
             if (status === 'OK') {
+                if (marker != null) {
+                    marker.setMap(null);
+                }
                 resultsMap.setCenter(results[0].geometry.location);
-                //var imageMmarker = 'images/marker.png'
-                var marker = new google.maps.Marker({map: resultsMap, position: results[0].geometry.location, /*icon: imageMmarker*/});
+                //var imageMmarker = 'images/marker.jpg'
+                marker = new google.maps.Marker({map: resultsMap, position: results[0].geometry.location, animation: google.maps.Animation.DROP});
                 var contentString = data[0].name + ", " + "Capital:" + " " + data[0].capital + ", " + "Language:" + " " + data[0].languages[0].name;
                 var tooltip = new google.maps.InfoWindow({content: contentString});
                 marker.addListener('click', function() {
@@ -138,7 +156,7 @@ $(function() {
         });
     }
 
-    
+
 //animacja h1 header
     $('.heading').each(function(){
       $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
